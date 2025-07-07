@@ -3,6 +3,7 @@
 ## Technical take-home test for axone data:
 
 ### Question 3:
+
     - code:
         - `extract.py` : parsers facebook, extracts posts and related images. specify `query` and `num_scrolls`
         - `transform.py`: removes duplicates from parsed data
@@ -17,7 +18,9 @@
 
         - `images` contains the images scraped from each post
         - `data` contains the data parsed and cleaned
-        - our parsing got `259` clean post for 150 scrolls
+        - our parsing got around `650` posts and our cleaning gave `259` clean post for 150 scrolls
+
+
 
 Result :
 
