@@ -1,9 +1,11 @@
 from pymongo import MongoClient
 import logging
 
+from dotenv import load_dotenv
 from typing import TypedDict
-import pandas as pd
 
+import pandas as pd
+import os
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -15,11 +17,20 @@ class Post(TypedDict):
     images: str
 
 
+load_dotenv()
+
+
 class MongoLoader:
+    class config:
+        USERNAME = os.getenv("MONGO_ROOT_USERNAME")
+        PASSWORD = os.getenv("MONGO_ROOT_PASSWORD")
+        PORT = os.getenv("MONGODB_PORT", "27017")
+        CON_STR = f"mongodb://{USERNAME}:{PASSWORD}@localhost:{PORT}/"
+
     def __init__(self, collection_name: str, path: str) -> None:
         self._collection_name = collection_name
         self._path = path
-        self._client = MongoClient("mongodb://axone:axone@localhost:27017/")
+        self._client = MongoClient(self.config.CON_STR)
         self._db = self._get_db()
         self._collection = self._get_collection()
         self._df: pd.DataFrame = self._get_df()  # pyright: ignore
