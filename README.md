@@ -12,7 +12,6 @@ The main difficulties of the question, is bypassing anti-bot measures and findin
 We managed to correctly scrape text + images, and store them into mongo with best data quality.
 
 
-
 ## Details:
 
     - how to run:
@@ -40,7 +39,9 @@ We managed to correctly scrape text + images, and store them into mongo with bes
 
         - `images` contains the images scraped from each post
         - `data` contains the data parsed and cleaned
-- our parsing got around `650` posts and our cleaning gave `259` clean post for 150 scrolls.
+
+
+**our parsing got around `650` posts and our cleaning gave `259` clean post for 150 scrolls.**
 
 
 
