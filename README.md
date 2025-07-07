@@ -11,19 +11,27 @@ Then, we use `pymongo` through a custom loader class, to load the data successfu
 The main difficulties of the question, is bypassing anti-bot measures and finding out the cause of the duplication. We managed to do this by simulating human behaviour (typing character by character, waiting between before each field, stealthy headers...)
 We managed to correctly scrape text + images, and store them into mongo with best data quality.
 
+Finally, we have made an airflow pipeline that executes each job (extract, transform, load) in a DAG. However, it only fetches 1 scroll due to the compute constraints that we have (5 scrolls take 30+ mns). This is made to demonstrate how it will be in a production scenario.
+
 
 ## Details:
 
     - how to run:
-        - install uv: `pip install uv`
-        - sync uv to install requirements: `uv sync`
-        - run :  `uv run main.py --query "deces jacques chirac" --num_scrolls 20`
+        - local :
+            - install uv: `pip install uv`
+            - sync uv to install requirements: `uv sync`
+            - run :  `uv run src/extract.py --query "deces jacques chirac" --num_scrolls 20 && uv run src/transform.py && uv run src/load_to_db.py`
+
+        - airflow pipeline:
+            - todo
+
 
     - features :
         - text + image parsing
         - cli usage for custom query + number of scrolls
         - mongodb storage with docker-compose
         - tests for the transformation + mongo i/o
+        - airflow pipeline for production standards
 
     - code:
         - `extract.py` : parsers facebook, extracts posts and related images. specify `query` and `num_scrolls`
@@ -44,12 +52,19 @@ We managed to correctly scrape text + images, and store them into mongo with bes
 **our parsing got around `650` posts and our cleaning gave `259` clean post for 150 scrolls.**
 
 
-
 Result :
 
 ![Scraping Logs](static/scrape_logs.png)
 ![Collection](static/mongo.png)
 ![Logs](static/mongo_logs.png)
+
+
+Airflow pipeline result:
+
+
+![Airflow Extract Job](static/extract_airflow.png)
+![Airflow Transform Job](static/transform_airflow.png)
+![Airflow Load](static/load_airflow.png)
 
 
 

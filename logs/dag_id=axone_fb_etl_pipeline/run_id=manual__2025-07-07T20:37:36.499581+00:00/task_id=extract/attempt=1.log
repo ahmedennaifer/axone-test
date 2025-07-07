@@ -1,0 +1,26 @@
+[2025-07-07T20:37:39.569+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: axone_fb_etl_pipeline.extract manual__2025-07-07T20:37:36.499581+00:00 [queued]>
+[2025-07-07T20:37:39.606+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: axone_fb_etl_pipeline.extract manual__2025-07-07T20:37:36.499581+00:00 [queued]>
+[2025-07-07T20:37:39.608+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 4
+[2025-07-07T20:37:39.652+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): extract> on 2025-07-07 20:37:36.499581+00:00
+[2025-07-07T20:37:39.673+0000] {standard_task_runner.py:57} INFO - Started process 206 to run task
+[2025-07-07T20:37:39.689+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'axone_fb_etl_pipeline', 'extract', 'manual__2025-07-07T20:37:36.499581+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmptlxxvda_']
+[2025-07-07T20:37:39.699+0000] {standard_task_runner.py:85} INFO - Job 9: Subtask extract
+[2025-07-07T20:37:39.870+0000] {task_command.py:415} INFO - Running <TaskInstance: axone_fb_etl_pipeline.extract manual__2025-07-07T20:37:36.499581+00:00 [running]> on host c88dda942e9f
+[2025-07-07T20:37:40.011+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='axone_fb_etl_pipeline' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2025-07-07T20:37:36.499581+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-07T20:37:36.499581+00:00'
+[2025-07-07T20:37:40.014+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-07-07T20:37:40.016+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/*** && python src/extract.py --query "deces jacques chirac" --num_scrolls 10']
+[2025-07-07T20:37:40.044+0000] {subprocess.py:86} INFO - Output:
+[2025-07-07T20:37:40.911+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-07-07T20:37:40.913+0000] {subprocess.py:93} INFO -   File "src/extract.py", line 8, in <module>
+[2025-07-07T20:37:40.913+0000] {subprocess.py:93} INFO -     from selenium import webdriver
+[2025-07-07T20:37:40.914+0000] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'selenium'
+[2025-07-07T20:37:41.020+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-07-07T20:37:41.280+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-07-07T20:37:41.298+0000] {taskinstance.py:1398} INFO - Marking task as UP_FOR_RETRY. dag_id=axone_fb_etl_pipeline, task_id=extract, execution_date=20250707T203736, start_date=20250707T203739, end_date=20250707T203741
+[2025-07-07T20:37:41.360+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 9 for task extract (Bash command failed. The command returned a non-zero exit code 1.; 206)
+[2025-07-07T20:37:41.391+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-07-07T20:37:41.447+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
