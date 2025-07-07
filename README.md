@@ -4,6 +4,17 @@
 
 ### Question 3:
 
+The goal of question 3, is to scrape data from facebook and store them in a document store (mongo).
+To achieve this, we used `selenium` which is a headless browser, to bypass anti-bot measures and simulate human users. Data is scraped by targetting some css selectors, that we found out through manual search. The data is the stored into `data/data.csv`, then we apply a script to clean and remove duplicates, resolting in a new clean file `data/clean.csv`.
+Then, we use `pymongo` through a custom loader class, to load the data successfully into our document store, for potential use by our analysts.
+
+The main difficulties of the question, is bypassing anti-bot measures and finding out the cause of the duplication. We managed to do this by simulating human behaviour (typing character by character, waiting between before each field, stealthy headers...)
+We managed to correctly scrape text + images, and store them into mongo with best data quality.
+
+
+
+## Details:
+
     - how to run:
         - install uv: `pip install uv`
         - sync uv to install requirements: `uv sync`
@@ -29,7 +40,7 @@
 
         - `images` contains the images scraped from each post
         - `data` contains the data parsed and cleaned
-        - our parsing got around `650` posts and our cleaning gave `259` clean post for 150 scrolls
+- our parsing got around `650` posts and our cleaning gave `259` clean post for 150 scrolls.
 
 
 
