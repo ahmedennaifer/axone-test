@@ -75,6 +75,7 @@ Enfin, pour avoir un workflow prêt pour être déployé en production, on crée
             -preparer le .env selon le .env.example en mettant l'email de pw d'un compte facebook.
             - install uv : `pip install uv`
             - sync uv pour install les requirements : `uv sync`
+            - lancer les containers mongodb et express : `docker-compose build && docker-compose up`
             - run : `uv run src/extract.py --query "deces jacques chirac" --num_scrolls 20`
             - puis clean la data avec : `uv run src/transform.py`
             - enfin, load la data : `uv run src/load_to_db.py`
