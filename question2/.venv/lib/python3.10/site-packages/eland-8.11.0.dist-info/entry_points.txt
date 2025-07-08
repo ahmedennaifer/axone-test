@@ -1,0 +1,2 @@
+[console_scripts]
+eland_import_hub_model = eland.cli.eland_import_hub_model:main
