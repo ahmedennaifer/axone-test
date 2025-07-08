@@ -46,12 +46,14 @@ services:
       - "9600:9600"
     volumes:
       - ./logstash/pipeline:/usr/share/logstash/pipeline
+      - ./logstash/data:/usr/share/logstash/data
     depends_on:
       - elasticsearch
       - fastapi-endpoint
     networks:
       - elk
     restart: on-failure
+    user: "0:0"
 
   fastapi-endpoint:
     container_name: fastapi-endpoint
