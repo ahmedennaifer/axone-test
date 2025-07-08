@@ -1,7 +1,7 @@
 # Les questions 1 & 2 (dans le fichier `question2`) :
 
 Le setup est fait entièrement avec docker compose, plus difficile à setup initialement, mais ça le rend disponible pour toutes les plateformes et setups (pas de machine windows/ubuntu disponible, mais macos est unix = linux). S'assurer que les données sont dans `logstash/data/data.txt`. Modifier le `logstash.conf` pour changer le filename si nécessaire.
-Il suffit de configurer le .env selon le .env.example, puis de run `docker compose build && docker compose run`.
+Il suffit de run `docker compose build && docker compose run`.
 
 La dataset est environ 20-30 phrases générées par ia. (impossible d'utiliser de plus gros datasets à cause des contraintes de compute. Mon pc ne me permet pas d'executer de plus gros loads).
 
@@ -72,6 +72,7 @@ Enfin, pour avoir un workflow prêt pour être déployé en production, on crée
 
     - comment run :
         - local :
+            -preparer le .env selon le .env.example en mettant l'email de pw d'un compte facebook.
             - install uv : `pip install uv`
             - sync uv pour install les requirements : `uv sync`
             - run : `uv run src/extract.py --query "deces jacques chirac" --num_scrolls 20`
