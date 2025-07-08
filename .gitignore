@@ -9,3 +9,4 @@ __pycache__/*
 .venv
 *.log
 logs/
+question2/.venv/
