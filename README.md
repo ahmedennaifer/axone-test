@@ -2,6 +2,7 @@
 
 Le setup est fait entièrement avec docker compose, plus difficile à setup initialement, mais ça le rend disponible pour toutes les plateformes et setups (pas de machine windows/ubuntu disponible, mais macos est unix = linux). S'assurer que les données sont dans `logstash/data/data.txt`. Modifier le `logstash.conf` pour changer le filename si nécessaire.
 Il suffit de run `docker compose build && docker compose run`. Une fois que les conteneurs sont up, modifie/crée le fichier data.txt (ou selon le nom dans le logstash.conf), enregistre, et la pipeline commencera automatiquement :) ! 
+Pour voir les logs dans Kibana, faut tout simplement créer une `Data View`, et mettre le nom correct du job (aussi dans le logstash.conf. Par défaut c'est `sentiment-debug3`)
 
 La dataset est environ 20-30 phrases générées par ia. (impossible d'utiliser de plus gros datasets à cause des contraintes de compute. Mon pc ne me permet pas d'executer de plus gros loads).
 
