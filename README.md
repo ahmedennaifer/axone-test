@@ -12,7 +12,9 @@ This endpoint communicates with `logstash` through the `http` definition. More d
 An alternative approach is to use `eland` directly, but it requires a trial subscription.
 Screenshots are inside the question2 folder.
 
-Results :
+## Results :
+
+
 
 Diagram :
 
@@ -62,10 +64,10 @@ Finally, we have made an airflow pipeline that executes each job (extract, trans
         - local :
             - install uv: `pip install uv`
             - sync uv to install requirements: `uv sync`
-            - run :  `uv run src/extract.py --query "deces jacques chirac" && \
-                      --num_scrolls 20 && \
-                      uv run src/transform.py && \
-                      uv run src/load_to_db.py`
+            - run :`uv run src/extract.py --query "deces jacques chirac" --num_scrolls 20`
+            - then clean the data with : `uv run src/transform.py`
+            - finally, load the data : `uv run src/load_to_db.py`
+
 
         - airflow pipeline that scrapes, cleans and loads the data in one go:
             - `airflow dags trigger axone_fb_etl_pipeline` and head to `localhost:8080` for the ui
