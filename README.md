@@ -20,7 +20,7 @@ Diagram :
 
 0.0 - ELK Installed and working:
 
-![ELK Services](static/all_services_ok.png)
+![ELK Services](question2/static/all_services_ok.png)
 
 1.0 - Login :
 
