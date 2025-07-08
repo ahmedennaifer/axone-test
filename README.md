@@ -2,6 +2,17 @@
 
 ## Technical take-home test for axone data:
 
+### Questions 1 & 2 are inside `question2`:
+
+The setup is done entirely with docker compose, more difficult to setup intially, but it makes it available for all platforms and setups. Make sure your data is in `logstash/data/data.txt`. Modify the `logstash.conf` if you want to change the filename.
+All you need is to run `docker compose build && docker compose run`.
+The classification step is a simple hugging face `pipeline` for sentiment analysis, served via a fastapi endpoint `predict` on port 8000 inside a Dockerfile.
+This endpoint communicates with `logstash` through the `http` definition. More details in the `logstash.conf` file.
+An alternative approach is to use `eland` directly, but it requires a trial subscription.
+Screenshots are inside the question2 folder.
+
+Note: I couldn't change the logo. i tried swapping the location of icon but it didn't work.
+
 ### Question 3:
 
 The goal of question 3, is to scrape data from facebook and store them in a document store (mongo).
