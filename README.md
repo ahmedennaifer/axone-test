@@ -1,8 +1,4 @@
-# axone-test
-
-## Test technique axone data :
-
-### Les questions 1 & 2 (dans le fichier `question2`) :
+# Les questions 1 & 2 (dans le fichier `question2`) :
 
 Le setup est fait entièrement avec docker compose, plus difficile à setup initialement, mais ça le rend disponible pour toutes les plateformes et setups (pas de machine windows/ubuntu disponible, mais macos est unix = linux). S'assurer que les données sont dans `logstash/data/data.txt`. Modifier le `logstash.conf` pour changer le filename si nécessaire.
 Il suffit de run `docker compose build && docker compose run`.
@@ -26,7 +22,7 @@ Les screenshots sont dans le folder question2.
 
 ## Résultats :
 
-Démo :
+Démo de 2 minutes (lancement -> stockage dans logstash):
 ![Démo](question2/static/exo2-demo-final.gif)
 
 
@@ -60,7 +56,7 @@ Diagram :
 
 Note : Impossible de changer le logo. J'ai essayé en assignant le volume du logo mais sans résultats.
 
-### Question 3 :
+# Question 3 :
 
 Le but de la question 3 est de scraper facebook et stocker les posts dans un document store (mongo).
 Pour faire ça, on utilise `selenium` qui est un headless browser, pour bypass les mesures anti-bot et simuler des users humains. La data est scrapée en visant des css selectors, trouvés en cherchant manuellement le DOM. La data est ensuite stockée dans `data/data.csv`, puis on lance un script pour nettoyer et supprimer les duplicates, résultant en un nouveau fichier propre `data/clean.csv`.
