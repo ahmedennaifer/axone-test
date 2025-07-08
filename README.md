@@ -49,7 +49,7 @@ Finally, we have made an airflow pipeline that executes each job (extract, trans
         - `data` contains the data parsed and cleaned
 
 
-**our parsing got around `650` posts and our cleaning gave `259` clean post for 150 scrolls.**
+**our parsing got around `1367` posts and our cleaning gave `545` clean post for 150 scrolls.**
 
 
 Result :
@@ -62,6 +62,7 @@ Result :
 Airflow pipeline result:
 
 
+![Airflow Full](static/full.png)
 ![Airflow Extract Job](static/extract_airflow.png)
 ![Airflow Transform Job](static/transform_airflow.png)
 ![Airflow Load](static/load_airflow.png)
