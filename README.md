@@ -112,7 +112,7 @@ Enfin, pour avoir un workflow prêt pour être déployé en production, on crée
         - `data` contient la data parsed et cleaned
 
 
-**le parsing a eu environ `1367` posts et le cleaning a donné `545` clean posts pour 150 scrolls.**
+**le parsing a eu environ `1367` posts et le cleaning a donné `545` clean posts pour 150 scrolls. (Les données dans /data sont variables, car elle changes a chaque run).**
 
 
 Résultat :
