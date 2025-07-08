@@ -25,19 +25,39 @@ services:
         limits:
           memory: 2g
 
+  elasticsearch-setup:
+    image: curlimages/curl:latest
+    container_name: elasticsearch-setup
+    depends_on:
+      - elasticsearch
+    command: >
+      sh -c "
+        echo 'Waiting for Elasticsearch to be ready...'
+        until curl -s http://elasticsearch:9200/_cluster/health >/dev/null 2>&1; do
+          echo 'Still waiting...'
+          sleep 5
+        done
+        echo 'Elasticsearch is ready. Setting up kibana_system password...'
+        curl -u elastic:axonetest -X POST 'http://elasticsearch:9200/_security/user/kibana_system/_password' -H 'Content-Type: application/json' -d '{\"password\":\"axonedata\"}'
+        echo 'Password setup complete!'
+      "
+    networks:
+      - elk
+
   kibana:
     image: kibana:8.15.0
     container_name: kibana
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
       - ELASTICSEARCH_USERNAME=kibana_system
-      - ELASTICSEARCH_PASSWORD=axonetest
+      - ELASTICSEARCH_PASSWORD=axonedata
       - xpack.ml.enabled=false
       - NODE_OPTIONS="--max-old-space-size=1024"
     ports:
       - "5601:5601"
     depends_on:
       - elasticsearch
+      - elasticsearch-setup
     networks:
       - elk
     volumes:
@@ -63,6 +83,7 @@ services:
       - ./logstash/data:/usr/share/logstash/data
     depends_on:
       - elasticsearch
+      - elasticsearch-setup
       - fastapi-endpoint
     networks:
       - elk
