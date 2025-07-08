@@ -26,6 +26,8 @@ Les screenshots sont dans le folder question2.
 
 ## Résultats :
 
+Démo :
+![Démo](question2/static/exo2-demo.mp4)
 
 
 Diagram :
