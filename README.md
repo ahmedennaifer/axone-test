@@ -16,7 +16,7 @@ Results :
 
 Diagram :
 
-![ELK Services](static/elk_api_diagram.png)
+![ELK Services](question2/static/elk_api_diagram.png)
 
 0.0 - ELK Installed and working:
 
@@ -24,23 +24,23 @@ Diagram :
 
 1.0 - Login :
 
-![ELK Services](static/kibana_login_ok.png)
+![ELK Services](question2/static/kibana_login_ok.png)
 
 2.0 - Classification API
 
-![ELK Services](static/api_ok.png)
+![ELK Services](question2/static/api_ok.png)
 
 2.1 - Endpoint processing the data
 
-![ELK Services](static/fastapi_requests_ok.png)
+![ELK Services](question2/static/fastapi_requests_ok.png)
 
 3.0 - Data with prediction in logstash
 
-![ELK Services](static/classification_logstash.png)
+![ELK Services](question2/static/classification_logstash.png)
 
 3.1 - Logstash logs
 
-![ELK Services](static/logstash_requests_ok.png)
+![ELK Services](question2/static/logstash_requests_ok.png)
 
 Note: I couldn't change the logo. i tried swapping the location of icon but it didn't work.
 
@@ -102,18 +102,18 @@ Finally, we have made an airflow pipeline that executes each job (extract, trans
 
 Result :
 
-![Scraping Logs](static/scrape_logs.png)
-![Collection](static/mongo.png)
-![Logs](static/mongo_logs.png)
+![Scraping Logs](question3/static/scrape_logs.png)
+![Collection](question3/static/mongo.png)
+![Logs](question3/static/mongo_logs.png)
 
 
 Airflow pipeline result:
 
 
-![Airflow Full](static/full.png)
-![Airflow Extract Job](static/extract_airflow.png)
-![Airflow Transform Job](static/transform_airflow.png)
-![Airflow Load](static/load_airflow.png)
+![Airflow Full](question3/static/full.png)
+![Airflow Extract Job](question3/static/extract_airflow.png)
+![Airflow Transform Job](question3/static/transform_airflow.png)
+![Airflow Load](question3/static/load_airflow.png)
 
 
 
