@@ -23,7 +23,7 @@ Finally, we have made an airflow pipeline that executes each job (extract, trans
             - run :  `uv run src/extract.py --query "deces jacques chirac" --num_scrolls 20 && uv run src/transform.py && uv run src/load_to_db.py`
 
         - airflow pipeline:
-            - todo
+            - `airflow dags trigger axone_fb_etl_pipeline` and head to `localhost:8080` for the ui
 
 
     - features :
@@ -38,6 +38,9 @@ Finally, we have made an airflow pipeline that executes each job (extract, trans
         - `transform.py`: removes duplicates from parsed data
         - `load_to_db`: load the data into a mongodb collection
         - `docker-compose.yaml`: for local mongodb setup
+        - `dag.py` for the airflow dag
+        - `tests` mongo + transform tests
+
 
     - results:
         - the resulting structure:
