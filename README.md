@@ -36,7 +36,7 @@ Diagram :
 
 3.0 - Data with prediction in logstash
 
-![ELK Services](question2/static/classification_logstash.png)
+![ELK Services](question2/static/sentiment_classification_logstash.png)
 
 3.1 - Logstash logs
 
